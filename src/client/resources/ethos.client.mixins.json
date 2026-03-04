@@ -1,0 +1,11 @@
+{
+	"required": true,
+	"package": "com.ethos.mixin.client",
+	"compatibilityLevel": "JAVA_21",
+	"client": [
+		"EthosClientMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

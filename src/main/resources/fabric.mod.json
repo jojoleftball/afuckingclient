@@ -1,31 +1,31 @@
 {
 	"schemaVersion": 1,
-	"id": "modid",
+	"id": "ethos",
 	"version": "${version}",
-	"name": "Example mod",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"name": "Ethos Client",
+	"description": "A pink-and-black themed hack client used to test server anti-cheat systems.",
 	"authors": [
-		"Me!"
+		"Ethos Team"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "",
+		"sources": ""
 	},
-	"license": "CC0-1.0",
-	"icon": "assets/modid/icon.png",
-	"environment": "*",
+	"license": "MIT",
+	"icon": "assets/ethos/icon.png",
+	"environment": "client",
 	"entrypoints": {
 		"main": [
-			"com.example.ExampleMod"
+			"com.ethos.EthosMod"
 		],
 		"client": [
-			"com.example.ExampleModClient"
+			"com.ethos.EthosModClient"
 		]
 	},
 	"mixins": [
-		"modid.mixins.json",
+		"ethos.mixins.json",
 		{
-			"config": "modid.client.mixins.json",
+			"config": "ethos.client.mixins.json",
 			"environment": "client"
 		}
 	],
@@ -36,6 +36,5 @@
 		"fabric-api": "*"
 	},
 	"suggests": {
-		"another-mod": "*"
 	}
 }

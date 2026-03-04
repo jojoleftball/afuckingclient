@@ -18,16 +18,21 @@ repositories {
 	// for more information about repositories.
 }
 
+// loom configuration is minimal; we don't split source sets for this simple client-only mod.
 loom {
-	splitEnvironmentSourceSets()
+    // no splitEnvironmentSourceSets() - compile all code together to avoid classpath issues
+}
 
-	mods {
-		"modid" {
-			sourceSet sourceSets.main
-			sourceSet sourceSets.client
-		}
-	}
-
+// include client-only code in main sources so it's compiled against the full Minecraft jar
+sourceSets {
+    main {
+        java {
+            srcDirs += 'src/client/java'
+        }
+        resources {
+            srcDirs += 'src/client/resources'
+        }
+    }
 }
 
 dependencies {
@@ -58,6 +63,11 @@ java {
 	// if it is present.
 	// If you remove this line, sources will not be generated.
 	withSourcesJar()
+
+	// Explicit toolchain to guarantee Java 21 during compilation rather than newer JDKs.
+	toolchain {
+		languageVersion.set(JavaLanguageVersion.of(21))
+	}
 
 	sourceCompatibility = JavaVersion.VERSION_21
 	targetCompatibility = JavaVersion.VERSION_21
